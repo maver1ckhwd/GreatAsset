@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f8f9fa; /* Clean Alabaster */
+  --foreground: #1a2b49; /* Deep Slate Blue */
+  
+  --primary: #1a2b49;
+  --primary-foreground: #f8f9fa;
+  
+  --secondary: #f8f9fa;
+  --secondary-foreground: #1a2b49;
+  
+  --accent: #ff6f61; /* Catalyst Coral */
+  --accent-foreground: #ffffff;
+  
+  --supporting: #4a90e2; /* Soft Teal */
+  --supporting-foreground: #ffffff;
+  
+  --muted: #64748b;
+  --muted-light: #e2e8f0;
+  
+  --card: #ffffff;
+  --border: #e2e8f0;
+}
+
+.dark {
+  --background: #0e1829; /* Dark Slate Blue */
+  --foreground: #f8f9fa;
+  
+  --primary: #f8f9fa;
+  --primary-foreground: #1a2b49;
+  
+  --secondary: #1a2b49;
+  --secondary-foreground: #f8f9fa;
+  
+  --accent: #ff8175;
+  --accent-foreground: #ffffff;
+  
+  --supporting: #5d9cec;
+  --supporting-foreground: #ffffff;
+  
+  --muted: #94a3b8;
+  --muted-light: #1e293b;
+  
+  --card: #131e32;
+  --border: #202e48;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-supporting: var(--supporting);
+  --color-supporting-foreground: var(--supporting-foreground);
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
+  
+  --font-sans: 'Inter', var(--font-inter), sans-serif;
+  --font-display: 'Outfit', var(--font-outfit), sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Micro-animations and Utilities */
+.glassmorphism {
+  background: rgba(248, 249, 250, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(26, 43, 73, 0.08);
+}
+
+.dark .glassmorphism {
+  background: rgba(14, 24, 41, 0.7);
+  border: 1px solid rgba(248, 249, 250, 0.05);
+}
+
+.glow-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg) translateX(-100%);
+  transition: transform 0.75s ease;
+}
+
+.glow-btn:hover::after {
+  transform: skewX(-25deg) translateX(100%);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
