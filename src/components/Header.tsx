@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
-import LogoCrop from "@/components/LogoCrop";
+import Logo from "@/components/Logo";
 import Link from "next/link";
 
 interface HeaderProps {
@@ -26,16 +26,8 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full glassmorphism border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Left-aligned branding logo */}
-        <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-          <LogoCrop 
-            x={25} 
-            y={20} 
-            w={160} 
-            h={60} 
-            scale={0.7} 
-            alt="GreatAsset Logo" 
-            className="dark:brightness-110 dark:contrast-115"
-          />
+        <Link href="/" className="hover:opacity-90 transition-opacity">
+          <Logo />
         </Link>
 
         {/* Central Links */}

@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import { BlogPost } from "@/utils/markdown";
 import { Calendar, Tag, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import LogoCrop from "@/components/LogoCrop";
+import Logo from "@/components/Logo";
 
 interface BlogClientProps {
   posts: BlogPost[];
@@ -111,15 +111,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
       <footer className="bg-background border-t border-border py-12 text-muted text-xs mt-12">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center">
-            <LogoCrop 
-              x={25} 
-              y={20} 
-              w={160} 
-              h={60} 
-              scale={0.55} 
-              alt="GreatAsset Logo" 
-              className="dark:brightness-110 dark:contrast-115"
-            />
+            <Logo />
           </div>
           
           <div className="flex items-center gap-8">

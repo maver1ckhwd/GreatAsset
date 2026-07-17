@@ -6,18 +6,14 @@ import Hero from "@/components/Hero";
 import ClientShowcase from "@/components/ClientShowcase";
 import ServicesGrid from "@/components/ServicesGrid";
 import LeadForm from "@/components/LeadForm";
-import LogoCrop from "@/components/LogoCrop";
+import Logo from "@/components/Logo";
 import {
   TrendingUp,
   Globe,
   ShieldCheck,
   Award,
   Zap,
-  Sparkles,
-  Phone,
-  Mail,
-  MapPin,
-  Building2
+  Sparkles
 } from "lucide-react";
 
 export default function Home() {
@@ -58,36 +54,11 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
-      {/* Stats Section */}
-      <section className="border-y border-border bg-muted-light/30">
-        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-border">
-          <div className="flex flex-col items-center md:items-start text-center md:text-left justify-center p-4">
-            <span className="font-display text-4xl font-extrabold text-supporting tracking-tight">98%</span>
-            <span className="text-xs text-muted mt-2 uppercase tracking-wider font-semibold">Retention Rate</span>
-          </div>
-          <div className="flex flex-col items-center md:items-start text-center md:text-left justify-center p-4 pt-8 md:pt-4">
-            <span className="font-display text-4xl font-extrabold text-supporting tracking-tight">14 Days</span>
-            <span className="text-xs text-muted mt-2 uppercase tracking-wider font-semibold">Shortlist Turnaround</span>
-          </div>
-          <div className="flex flex-col items-center md:items-start text-center md:text-left justify-center p-4 pt-8 md:pt-4">
-            <span className="font-display text-4xl font-extrabold text-supporting tracking-tight">$450M+</span>
-            <span className="text-xs text-muted mt-2 uppercase tracking-wider font-semibold">Payroll Administered</span>
-          </div>
-          <div className="flex flex-col items-center md:items-start text-center md:text-left justify-center p-4 pt-8 md:pt-4">
-            <span className="font-display text-4xl font-extrabold text-supporting tracking-tight">500+</span>
-            <span className="text-xs text-muted mt-2 uppercase tracking-wider font-semibold">C-Suite Placements</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Logo Showcase */}
-      <ClientShowcase />
-
-      {/* Service Spectrum Grid */}
+      {/* 1. Service Spectrum Grid */}
       <ServicesGrid />
 
-      {/* Industry / Sector Expertise */}
-      <section id="industries" className="py-20 md:py-24 bg-muted-light/10">
+      {/* 2. Industry / Sector Expertise */}
+      <section id="industries" className="py-20 md:py-24 bg-transparent">
         <div className="max-w-7xl mx-auto px-6 space-y-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-4 max-w-xl">
@@ -120,22 +91,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Workforce Health Check Form Container */}
+      {/* 3. Client Logo Showcase */}
+      <ClientShowcase />
+
+      {/* 4. Workforce Health Check Form Container */}
       <LeadForm />
 
       {/* Footer */}
       <footer id="resources" className="bg-background border-t border-border py-12 text-muted text-xs">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center">
-            <LogoCrop 
-              x={25} 
-              y={20} 
-              w={160} 
-              h={60} 
-              scale={0.55} 
-              alt="GreatAsset Logo" 
-              className="dark:brightness-110 dark:contrast-115"
-            />
+            <Logo />
           </div>
           
           <div className="flex items-center gap-8">
