@@ -45,7 +45,7 @@ export default function PostClient({ post, htmlContent }: PostClientProps) {
           <div className="mb-8">
             <Link 
               href="/blog" 
-              className="inline-flex items-center gap-2 text-xs font-bold text-supporting hover:text-primary transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-neutral-core dark:hover:text-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Insights
@@ -57,7 +57,7 @@ export default function PostClient({ post, htmlContent }: PostClientProps) {
             {/* Header info */}
             <div className="space-y-4">
               <div className="flex items-center gap-4 text-xs font-bold tracking-wider text-muted uppercase">
-                <span className="inline-flex items-center gap-1 text-supporting">
+                <span className="inline-flex items-center gap-1 text-primary">
                   <Tag className="w-4 h-4" />
                   {post.category}
                 </span>
@@ -67,11 +67,11 @@ export default function PostClient({ post, htmlContent }: PostClientProps) {
                 </span>
               </div>
               
-              <h1 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-primary leading-tight">
+              <h1 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-neutral-core dark:text-white leading-tight">
                 {post.title}
               </h1>
 
-              <p className="text-muted text-sm md:text-base leading-relaxed border-l-4 border-accent pl-4 italic">
+              <p className="text-muted text-sm md:text-base leading-relaxed border-l-4 border-primary pl-4 italic">
                 {post.summary}
               </p>
             </div>
@@ -94,10 +94,10 @@ export default function PostClient({ post, htmlContent }: PostClientProps) {
           </div>
           
           <div className="flex items-center gap-8">
-            <a href="#" className="hover:text-supporting">Privacy Policy</a>
-            <a href="#" className="hover:text-supporting">Terms of Service</a>
-            <a href="#" className="hover:text-supporting">Disclosures</a>
-            <a href="#" className="hover:text-supporting">Regulatory Filings</a>
+            <a href="#" className="hover:text-primary">Privacy Policy</a>
+            <a href="#" className="hover:text-primary">Terms of Service</a>
+            <a href="#" className="hover:text-primary">Disclosures</a>
+            <a href="#" className="hover:text-primary">Regulatory Filings</a>
           </div>
 
           <p>© {new Date().getFullYear()} GreatAsset Partners LLC. All rights reserved.</p>

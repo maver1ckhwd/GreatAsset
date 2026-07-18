@@ -75,39 +75,39 @@ export default function LeadForm() {
 
   return (
     <section id="health-check-form" className="py-20 md:py-28 relative overflow-hidden bg-primary text-primary-foreground">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(74,144,226,0.12),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(255,255,255,0.1),transparent_40%)]" />
       
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         
         {/* Left marketing copy */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/15 text-accent text-xs font-bold tracking-wide">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold tracking-wide">
             <ClipboardCheck className="w-3.5 h-3.5" />
             <span>ORGANIZATIONAL DIAGNOSTIC</span>
           </div>
           
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight leading-tight">
             Perform Your <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-supporting">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">
               Workforce Health Check
             </span>
           </h2>
           
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg">
+          <p className="text-white/80 text-sm sm:text-base leading-relaxed max-w-lg">
             Identify the friction points holding your human operations back. Fill out this brief diagnostic, and our senior HR advisors will compile a personalized evaluation analysis of your current structure.
           </p>
 
-          <div className="space-y-4 pt-4 border-t border-slate-800 text-slate-300 text-xs">
+          <div className="space-y-4 pt-4 border-t border-white/20 text-white/80 text-xs">
             <div className="flex items-center gap-3">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-supporting/25 text-supporting font-semibold">1</span>
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15 text-white font-semibold">1</span>
               <span>Submit your operational indicators securely</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-supporting/25 text-supporting font-semibold">2</span>
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15 text-white font-semibold">2</span>
               <span>Receive custom compliance & staffing scorecards</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-supporting/25 text-supporting font-semibold">3</span>
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15 text-white font-semibold">3</span>
               <span>Engage directly with a Senior HR Analyst (30 min call)</span>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function LeadForm() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="w-4 h-4 text-accent" />
+                  <Sparkles className="w-4 h-4 text-primary" />
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Diagnostic Details</span>
                 </div>
 
@@ -144,7 +144,7 @@ export default function LeadForm() {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    className={`w-full bg-slate-950 border text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-supporting transition-colors ${errors.fullName ? 'border-rose-500/60' : 'border-slate-800'}`}
+                    className={`w-full bg-slate-950 border text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-primary transition-colors ${errors.fullName ? 'border-rose-500/60' : 'border-slate-800'}`}
                     placeholder="Jane Doe"
                   />
                 </div>
@@ -160,7 +160,7 @@ export default function LeadForm() {
                     name="workEmail"
                     value={formData.workEmail}
                     onChange={handleInputChange}
-                    className={`w-full bg-slate-950 border text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-supporting transition-colors ${errors.workEmail ? 'border-rose-500/60' : 'border-slate-800'}`}
+                    className={`w-full bg-slate-950 border text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-primary transition-colors ${errors.workEmail ? 'border-rose-500/60' : 'border-slate-800'}`}
                     placeholder="j.doe@company.com"
                   />
                 </div>
@@ -175,7 +175,7 @@ export default function LeadForm() {
                     name="companySize"
                     value={formData.companySize}
                     onChange={handleInputChange}
-                    className={`w-full bg-slate-950 border text-slate-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-supporting transition-colors ${errors.companySize ? 'border-rose-500/60' : 'border-slate-800'}`}
+                    className={`w-full bg-slate-950 border text-slate-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-primary transition-colors ${errors.companySize ? 'border-rose-500/60' : 'border-slate-800'}`}
                   >
                     <option value="">Select size...</option>
                     <option value="1-15">Early-Stage (1 - 15)</option>
@@ -186,7 +186,7 @@ export default function LeadForm() {
                   </select>
                 </div>
 
-                {/* Primary Bottleneck Dropdown */}
+                {/* Primary Operational Bottleneck Dropdown */}
                 <div className="space-y-1">
                   <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 flex justify-between">
                     <span>Primary Operational Bottleneck</span>
@@ -196,7 +196,7 @@ export default function LeadForm() {
                     name="bottleneck"
                     value={formData.bottleneck}
                     onChange={handleInputChange}
-                    className={`w-full bg-slate-950 border text-slate-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-supporting transition-colors ${errors.bottleneck ? 'border-rose-500/60' : 'border-slate-800'}`}
+                    className={`w-full bg-slate-950 border text-slate-300 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-primary transition-colors ${errors.bottleneck ? 'border-rose-500/60' : 'border-slate-800'}`}
                   >
                     <option value="">Select primary bottleneck...</option>
                     <option value="Hiring Speed">Hiring Speed & Talent Sourcing</option>
@@ -208,7 +208,7 @@ export default function LeadForm() {
 
                 <button
                   type="submit"
-                  className="w-full bg-accent hover:opacity-90 text-white font-bold py-3.5 px-4 rounded-xl text-sm transition-all shadow-md shadow-accent/20 mt-4"
+                  className="w-full bg-primary hover:opacity-90 text-white font-bold py-3.5 px-4 rounded-xl text-sm transition-all shadow-md shadow-primary/20 mt-4"
                 >
                   Initiate Audit & Health Check
                 </button>

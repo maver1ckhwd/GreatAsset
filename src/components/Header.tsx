@@ -32,13 +32,13 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
 
         {/* Central Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#services" className="text-sm font-semibold text-foreground hover:text-supporting transition-colors">
+          <a href="#services" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
             Services
           </a>
-          <a href="#industries" className="text-sm font-semibold text-foreground hover:text-supporting transition-colors">
+          <a href="#industries" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
             Industries
           </a>
-          <a href="#resources" className="text-sm font-semibold text-foreground hover:text-supporting transition-colors">
+          <a href="#resources" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
             Resources
           </a>
         </nav>
@@ -56,7 +56,7 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
           <a 
             href="#health-check-form" 
             onClick={handleScrollToForm}
-            className="glow-btn bg-accent text-white hover:opacity-90 px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-accent/20 transition-all"
+            className="glow-btn bg-primary text-white hover:opacity-90 px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-primary/20 transition-all"
           >
             Book an HR Audit
           </a>
@@ -106,7 +106,7 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
           <a 
             href="#health-check-form"
             onClick={handleScrollToForm}
-            className="bg-accent text-white w-full py-3.5 rounded-xl font-bold text-center shadow-lg shadow-accent/15 mt-4"
+            className="bg-primary text-white w-full py-3.5 rounded-xl font-bold text-center shadow-lg shadow-primary/15 mt-4"
           >
             Book an HR Audit
           </a>

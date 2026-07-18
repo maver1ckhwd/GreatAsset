@@ -6,13 +6,13 @@
   --background: #f8f9fa; /* Clean Alabaster */
   --foreground: #1a2b49; /* Deep Slate Blue */
   
-  --primary: #1a2b49;
-  --primary-foreground: #f8f9fa;
+  --primary: #4a90e2;
+  --primary-foreground: #ffffff;
   
   --secondary: #f8f9fa;
   --secondary-foreground: #1a2b49;
   
-  --accent: #ff6f61; /* Catalyst Coral */
+  --accent: #4a90e2; /* Maps to Primary Brand Tone */
   --accent-foreground: #ffffff;
   
   --supporting: #4a90e2; /* Soft Teal */
@@ -22,20 +22,23 @@
   --muted-light: #e2e8f0;
   
   --card: #ffffff;
-  --border: #e2e8f0;
+  --border: #94a3b8;
+  
+  --neutral-core: #1a2b49;
+  --supporting-subtle: #94a3b8;
 }
 
 .dark {
   --background: #0e1829; /* Dark Slate Blue */
-  --foreground: #f8f9fa;
+  --foreground: #ffffff;
   
-  --primary: #f8f9fa;
-  --primary-foreground: #1a2b49;
+  --primary: #5d9cec;
+  --primary-foreground: #ffffff;
   
   --secondary: #1a2b49;
   --secondary-foreground: #f8f9fa;
   
-  --accent: #ff8175;
+  --accent: #5d9cec;
   --accent-foreground: #ffffff;
   
   --supporting: #5d9cec;
@@ -45,7 +48,10 @@
   --muted-light: #1e293b;
   
   --card: #131e32;
-  --border: #202e48;
+  --border: #cbd5e1;
+  
+  --neutral-core: #ffffff;
+  --supporting-subtle: #cbd5e1;
 }
 
 @theme inline {
@@ -57,6 +63,9 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-supporting: var(--supporting);
   --color-supporting-foreground: var(--supporting-foreground);
+  
+  --color-neutral-core: var(--neutral-core);
+  --color-supporting-subtle: var(--supporting-subtle);
   
   --color-background: var(--background);
   --color-foreground: var(--foreground);

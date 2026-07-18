@@ -42,8 +42,8 @@ export default function BlogClient({ posts }: BlogClientProps) {
         <section className="relative overflow-hidden py-12 md:py-16 bg-radial-gradient">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(74,144,226,0.05),transparent_50%)] dark:bg-[radial-gradient(ellipse_at_top_right,rgba(93,156,236,0.07),transparent_50%)]" />
           <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-4">
-            <span className="text-xs text-supporting tracking-widest font-bold uppercase">RESOURCES & INSIGHTS</span>
-            <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-primary tracking-tight">
+            <span className="text-xs text-primary tracking-widest font-bold uppercase">RESOURCES & INSIGHTS</span>
+            <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-neutral-core dark:text-white tracking-tight">
               The GreatAsset Intelligence Blog
             </h1>
             <p className="text-muted text-sm sm:text-base max-w-xl mx-auto">
@@ -63,12 +63,12 @@ export default function BlogClient({ posts }: BlogClientProps) {
               {posts.map((post) => (
                 <article 
                   key={post.slug}
-                  className="bg-card border border-border hover:border-supporting/50 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+                  className="bg-card border border-border hover:border-primary/50 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div className="space-y-4">
                     {/* Category & Date */}
                     <div className="flex items-center justify-between text-[11px] font-bold tracking-wider text-muted uppercase">
-                      <span className="inline-flex items-center gap-1 text-supporting">
+                      <span className="inline-flex items-center gap-1 text-primary">
                         <Tag className="w-3.5 h-3.5" />
                         {post.category}
                       </span>
@@ -79,7 +79,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                     </div>
 
                     {/* Title */}
-                    <h2 className="font-display font-bold text-xl text-primary group-hover:text-supporting transition-colors leading-tight">
+                    <h2 className="font-display font-bold text-xl text-neutral-core dark:text-white group-hover:text-primary transition-colors leading-tight">
                       <Link href={`/blog/${post.slug}`}>
                         {post.title}
                       </Link>
@@ -94,7 +94,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   <div className="pt-6 border-t border-border mt-6">
                     <Link 
                       href={`/blog/${post.slug}`}
-                      className="text-xs font-bold text-supporting group-hover:text-primary flex items-center gap-1.5 transition-colors"
+                      className="text-xs font-bold text-primary group-hover:text-neutral-core dark:group-hover:text-white flex items-center gap-1.5 transition-colors"
                     >
                       Read Full Article
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

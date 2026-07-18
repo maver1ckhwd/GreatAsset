@@ -62,8 +62,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 space-y-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-4 max-w-xl">
-              <span className="text-xs text-supporting tracking-widest font-bold uppercase">SECTORS WE SERVE</span>
-              <h2 className="font-display font-extrabold text-3xl text-primary tracking-tight">
+              <span className="text-xs text-primary tracking-widest font-bold uppercase">SECTORS WE SERVE</span>
+              <h2 className="font-display font-extrabold text-3xl text-neutral-core dark:text-white tracking-tight">
                 Operating at the Frontier of Innovation
               </h2>
             </div>
@@ -77,11 +77,11 @@ export default function Home() {
               const IconComp = sector.icon;
               return (
                 <div key={index} className="flex items-center gap-4 bg-card border border-border p-5 rounded-xl hover:bg-muted-light/35 transition-colors">
-                  <div className="w-10 h-10 rounded-lg bg-supporting/10 text-supporting flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
                     <IconComp className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm text-primary">{sector.name}</h4>
+                    <h4 className="font-bold text-sm text-neutral-core dark:text-white">{sector.name}</h4>
                     <p className="text-xs text-muted mt-0.5">{sector.count}</p>
                   </div>
                 </div>
@@ -105,10 +105,10 @@ export default function Home() {
           </div>
           
           <div className="flex items-center gap-8">
-            <a href="#" className="hover:text-supporting">Privacy Policy</a>
-            <a href="#" className="hover:text-supporting">Terms of Service</a>
-            <a href="#" className="hover:text-supporting">Disclosures</a>
-            <a href="#" className="hover:text-supporting">Regulatory Filings</a>
+            <a href="#" className="hover:text-primary">Privacy Policy</a>
+            <a href="#" className="hover:text-primary">Terms of Service</a>
+            <a href="#" className="hover:text-primary">Disclosures</a>
+            <a href="#" className="hover:text-primary">Regulatory Filings</a>
           </div>
 
           <p>© {new Date().getFullYear()} GreatAsset Partners LLC. All rights reserved.</p>
