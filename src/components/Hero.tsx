@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="lg:col-span-7 space-y-6 text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wide">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>FULL-LIFECYCLE HR SYSTEMS DEVELOPMENT</span>
+            <span>TALENT ACQUISITION, MANAGEMENT & DEVELOPMENT PARTNER</span>
           </div>
           
           <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] text-neutral-core dark:text-white">
@@ -33,7 +33,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-base sm:text-lg text-muted max-w-xl leading-relaxed">
-            From early-stage scaling to fully structured corporate enterprises, we engineer the compliant, scalable HR infrastructure and full-lifecycle workforce programs your business needs to grow.
+            As your strategic Talent Acquisition, Management & Development Partner, we engineer the compliant, scalable HR infrastructure and full-lifecycle workforce programs your business needs to grow — including performance management, organizational structuring, and outsourcing support.
           </p>
           
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">

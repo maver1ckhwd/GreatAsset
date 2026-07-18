@@ -14,8 +14,8 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "GreatAsset | Executive Search & B2B Talent Acquisition Partner",
-  description: "Connecting enterprise companies with elite executive, scientific, and technical leaders. GreatAsset is the premier strategic talent advisory partner.",
+  title: "GreatAsset | Talent Acquisition, Management & Development Partner",
+  description: "Connecting enterprise companies with elite executive, scientific, and technical leaders. GreatAsset is the premier strategic Talent Acquisition, Management & Development Partner, offering full-lifecycle HR ecosystem services including performance management, structuring, and outsourcing support.",
 };
 
 export default function RootLayout({
