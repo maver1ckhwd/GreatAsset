@@ -23,7 +23,7 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full glassmorphism border-b border-border">
+    <header className="relative sticky top-0 z-50 w-full glassmorphism border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Left-aligned branding logo */}
         <Link href="/" className="hover:opacity-90 transition-opacity">
@@ -81,7 +81,10 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-background md:hidden pt-24 px-6 flex flex-col gap-6 animate-fade-in">
+        <div 
+          className="absolute top-full left-0 w-full z-50 bg-[#F8F9FA] dark:bg-background shadow-lg border-b border-border md:hidden p-6 flex flex-col gap-6 animate-fade-in [-webkit-overflow-scrolling:touch]"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
           <a 
             href="#services" 
             onClick={() => setMobileMenuOpen(false)}
