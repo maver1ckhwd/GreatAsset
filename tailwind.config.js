@@ -92,6 +92,58 @@ function syncGlobalsCss(colors) {
 
 syncGlobalsCss(brandColors);
 
+function copyAndCleanLogos() {
+  try {
+    const artifactDir = "C:/Users/sansk/.gemini/antigravity-ide/brain/769f1836-cb13-4e13-b5e4-e144a6a6b6e6";
+    const logoMap = [
+      ["media__1785591124292.png", "captain_sales.png"],
+      ["media__1785591177956.png", "healic.png"],
+      ["media__1785591234084.png", "designwell_pdc.png"],
+      ["media__1785591262622.png", "casa_derma.png"],
+    ];
+
+    logoMap.forEach(([srcFile, destFile]) => {
+      const srcPath = path.join(artifactDir, srcFile);
+      const destPath = path.resolve(__dirname, "./public", destFile);
+      if (fs.existsSync(srcPath)) {
+        fs.copyFileSync(srcPath, destPath);
+        console.log(`[Logo Sync] Copied ${srcFile} to ${destFile}`);
+      }
+    });
+
+    // Clean up any black border outlines on remaining logo files using sharp if available
+    try {
+      const sharp = require("sharp");
+      const extraLogos = ["badili.png", "kp_architects.png", "centricity.png", "india_print_n_serve.png"];
+      extraLogos.forEach(async (fileName) => {
+        const filePath = path.resolve(__dirname, "./public", fileName);
+        if (fs.existsSync(filePath)) {
+          const buffer = fs.readFileSync(filePath);
+          const meta = await sharp(buffer).metadata();
+          if (meta.width && meta.height) {
+            // Extract inner box to strip 3px border outline
+            const trimmed = await sharp(buffer)
+              .extract({
+                left: Math.min(4, Math.floor(meta.width * 0.03)),
+                top: Math.min(4, Math.floor(meta.height * 0.03)),
+                width: meta.width - Math.min(8, Math.floor(meta.width * 0.06)),
+                height: meta.height - Math.min(8, Math.floor(meta.height * 0.06))
+              })
+              .toBuffer();
+            fs.writeFileSync(filePath, trimmed);
+          }
+        }
+      });
+    } catch (sharpErr) {
+      console.log("[Sharp] Sharp not active or error:", sharpErr);
+    }
+  } catch (err) {
+    console.error("[Logo Sync Error]", err);
+  }
+}
+
+copyAndCleanLogos();
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [

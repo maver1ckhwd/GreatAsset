@@ -2,52 +2,16 @@
 
 import React from "react";
 
-interface ImgCropProps {
-  src: string;
-  w: number;
-  h: number;
-  alt: string;
-  trim?: number;
-}
-
-// Utility to crop out the border outlines of user uploaded individual logo files
-function ImgCrop({ src, w, h, alt, trim = 5 }: ImgCropProps) {
-  return (
-    <div 
-      className="relative overflow-hidden inline-block select-none"
-      style={{ 
-        width: `${w}px`, 
-        height: `${h}px` 
-      }}
-    >
-      <img 
-        src={src} 
-        alt={alt}
-        draggable={false}
-        className="absolute max-w-none"
-        style={{ 
-          left: `-${trim}px`, 
-          top: `-${trim}px`, 
-          width: `calc(100% + ${trim * 2}px)`, 
-          height: `calc(100% + ${trim * 2}px)`, 
-        }} 
-      />
-    </div>
-  );
-}
-
 export default function ClientShowcase() {
   const clientLogos = [
-    { src: "/healic.png", w: 150, h: 75, trim: 6, name: "HEALIC" },
-    // Captain Sales has trim={4} to cut out the remaining right border outline without clipping text
-    { src: "/captain_sales.png", w: 160, h: 66, trim: 4, name: "Captain Sales" },
-    { src: "/designwell_pdc.png", w: 90, h: 80, trim: 5, name: "Designwell PDC" },
-    { src: "/casa_derma.png", w: 100, h: 66, trim: 6, name: "Casa Derma Skin Solutions" },
-    { src: "/badili.png", w: 160, h: 50, trim: 5, name: "Badili" },
-    // Sliced files updated to trim out outlines completely
-    { src: "/kp_architects.png", w: 140, h: 70, trim: 4, name: "KP Architects" },
-    { src: "/centricity.png", w: 140, h: 46, trim: 4, name: "Centricity" },
-    { src: "/india_print_n_serve.png", w: 100, h: 80, trim: 4, name: "Print N Serve Pvt. Ltd." }
+    { src: "/healic.png", name: "HEALIC" },
+    { src: "/captain_sales.png", name: "Captain Sales" },
+    { src: "/designwell_pdc.png", name: "Designwell PDC" },
+    { src: "/casa_derma.png", name: "Casa Derma Skin Solutions" },
+    { src: "/badili.png", name: "Badili" },
+    { src: "/kp_architects.png", name: "KP Architects" },
+    { src: "/centricity.png", name: "Centricity" },
+    { src: "/india_print_n_serve.png", name: "Print N Serve Pvt. Ltd." }
   ];
 
   return (
@@ -72,15 +36,11 @@ export default function ClientShowcase() {
               // Keep card background as bg-white in both light and dark modes to blend white logo images seamlessly
               className="bg-white border border-border/80 p-4 rounded-2xl h-28 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow group overflow-hidden"
             >
-              <div className="group-hover:scale-105 transition-transform duration-300">
-                <ImgCrop 
-                  src={client.src} 
-                  w={client.w} 
-                  h={client.h} 
-                  trim={client.trim} 
-                  alt={`${client.name} Logo`} 
-                />
-              </div>
+              <img 
+                src={client.src} 
+                alt={`${client.name} Logo`} 
+                className="max-h-16 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105 select-none" 
+              />
             </div>
           ))}
         </div>

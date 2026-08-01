@@ -35,9 +35,6 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
           <a href="#services" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
             Services
           </a>
-          <a href="#industries" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
-            Industries
-          </a>
           <a href="#resources" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
             Resources
           </a>
@@ -91,13 +88,6 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
             className="text-lg font-semibold border-b border-border pb-3"
           >
             Services
-          </a>
-          <a 
-            href="#industries" 
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-lg font-semibold border-b border-border pb-3"
-          >
-            Industries
           </a>
           <a 
             href="#resources" 

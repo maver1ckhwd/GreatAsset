@@ -7,14 +7,6 @@ import ClientShowcase from "@/components/ClientShowcase";
 import ServicesGrid from "@/components/ServicesGrid";
 import LeadForm from "@/components/LeadForm";
 import Logo from "@/components/Logo";
-import {
-  TrendingUp,
-  Globe,
-  ShieldCheck,
-  Award,
-  Zap,
-  Sparkles
-} from "lucide-react";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -37,15 +29,6 @@ export default function Home() {
     }
   };
 
-  const industrySectors = [
-    { name: "Executive Leadership", count: "42 Placements", icon: Award },
-    { name: "Artificial Intelligence", count: "118 Placements", icon: Sparkles },
-    { name: "Fintech & Blockchain", count: "85 Placements", icon: TrendingUp },
-    { name: "Advanced Robotics", count: "39 Placements", icon: Zap },
-    { name: "Life Sciences & Biotech", count: "72 Placements", icon: ShieldCheck },
-    { name: "Global Enterprise SaaS", count: "154 Placements", icon: Globe }
-  ];
-
   return (
     <div className="min-h-screen font-sans antialiased bg-background text-foreground transition-colors duration-300">
       {/* Global Header */}
@@ -57,41 +40,7 @@ export default function Home() {
       {/* 1. Service Spectrum Grid */}
       <ServicesGrid />
 
-      {/* 2. Industry / Sector Expertise */}
-      <section id="industries" className="py-20 md:py-24 bg-transparent">
-        <div className="max-w-7xl mx-auto px-6 space-y-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-4 max-w-xl">
-              <span className="text-xs text-primary tracking-widest font-bold uppercase">SECTORS WE SERVE</span>
-              <h2 className="font-display font-extrabold text-3xl text-neutral-core dark:text-white tracking-tight">
-                Operating at the Frontier of Innovation
-              </h2>
-            </div>
-            <p className="text-muted text-sm max-w-sm">
-              We specialize in high-growth segments requiring technical precision, operational scaling, and executive leadership.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industrySectors.map((sector, index) => {
-              const IconComp = sector.icon;
-              return (
-                <div key={index} className="flex items-center gap-4 bg-card border border-border p-5 rounded-xl hover:bg-muted-light/35 transition-colors">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <IconComp className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-neutral-core dark:text-white">{sector.name}</h4>
-                    <p className="text-xs text-muted mt-0.5">{sector.count}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Client Logo Showcase */}
+      {/* 2. Client Logo Showcase */}
       <ClientShowcase />
 
       {/* 4. Workforce Health Check Form Container */}
