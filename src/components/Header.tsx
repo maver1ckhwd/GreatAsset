@@ -35,6 +35,12 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
           <a href="#services" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
             Services
           </a>
+          <a href="#framework" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
+            Execution
+          </a>
+          <a href="#journey" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
+            Journey
+          </a>
           <a href="#resources" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
             Resources
           </a>
@@ -88,6 +94,20 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
             className="text-lg font-semibold border-b border-border pb-3"
           >
             Services
+          </a>
+          <a 
+            href="#framework" 
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-lg font-semibold border-b border-border pb-3"
+          >
+            Execution
+          </a>
+          <a 
+            href="#journey" 
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-lg font-semibold border-b border-border pb-3"
+          >
+            Journey
           </a>
           <a 
             href="#resources" 

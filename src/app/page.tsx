@@ -3,8 +3,11 @@
 import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ClientShowcase from "@/components/ClientShowcase";
+import OperationalLandscape from "@/components/OperationalLandscape";
 import ServicesGrid from "@/components/ServicesGrid";
+import ExecutionFramework from "@/components/ExecutionFramework";
+import ClientShowcase from "@/components/ClientShowcase";
+import EngagementJourney from "@/components/EngagementJourney";
 import LeadForm from "@/components/LeadForm";
 import Logo from "@/components/Logo";
 
@@ -37,13 +40,22 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
-      {/* 1. Service Spectrum Grid */}
+      {/* 1. Client Operational Landscape */}
+      <OperationalLandscape />
+
+      {/* 2. Service Spectrum Grid */}
       <ServicesGrid />
 
-      {/* 2. Client Logo Showcase */}
+      {/* 3. Service Capabilities & Execution Framework */}
+      <ExecutionFramework />
+
+      {/* 4. Client Logo Showcase */}
       <ClientShowcase />
 
-      {/* 4. Workforce Health Check Form Container */}
+      {/* 5. Engagement Journey & Onboarding */}
+      <EngagementJourney />
+
+      {/* 6. Workforce Health Check Form Container (Organizational Diagnostic) */}
       <LeadForm />
 
       {/* Footer */}
