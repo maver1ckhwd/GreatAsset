@@ -1,16 +1,18 @@
 import { createClient } from "@supabase/supabase-js";
 
-export interface SignupRecord {
+export interface DiagnosticSignupRecord {
   id?: string;
-  name: string;
-  email: string;
-  phone?: string;
-  company?: string;
-  message?: string;
+  full_name: string;
+  work_email: string;
+  phone_number?: string;
+  company_name?: string;
   company_size?: string;
-  bottleneck?: string;
+  primary_bottleneck?: string;
+  message?: string;
   created_at?: string;
 }
+
+export type SignupRecord = DiagnosticSignupRecord;
 
 /**
  * Retrieve environment variables supporting both Next.js (process.env.NEXT_PUBLIC_*)
@@ -34,8 +36,8 @@ function getEnvVariable(nextKey: string, viteKey: string): string {
   return "";
 }
 
-const supabaseUrl = getEnvVariable("NEXT_PUBLIC_SUPABASE_URL", "VITE_SUPABASE_URL");
-const supabaseAnonKey = getEnvVariable("NEXT_PUBLIC_SUPABASE_ANON_KEY", "VITE_SUPABASE_ANON_KEY");
+export const supabaseUrl = getEnvVariable("NEXT_PUBLIC_SUPABASE_URL", "VITE_SUPABASE_URL");
+export const supabaseAnonKey = getEnvVariable("NEXT_PUBLIC_SUPABASE_ANON_KEY", "VITE_SUPABASE_ANON_KEY");
 
 // Use a fallback URL structure to ensure createClient doesn't crash on initial build if env vars aren't provided yet.
 const effectiveUrl =
@@ -48,5 +50,18 @@ const effectiveAnonKey = supabaseAnonKey || "placeholder-anon-key";
 export const supabase = createClient(effectiveUrl, effectiveAnonKey);
 
 export const isSupabaseConfigured = (): boolean => {
-  return Boolean(supabaseUrl && supabaseAnonKey);
+  if (!supabaseUrl || !supabaseAnonKey) {
+    return false;
+  }
+  if (
+    supabaseUrl.includes("your-actual-project") ||
+    supabaseUrl.includes("your-project-ref") ||
+    supabaseAnonKey.includes("your-actual-anon-key") ||
+    supabaseAnonKey.includes("your-supabase-anon-key") ||
+    supabaseUrl.includes("placeholder-project") ||
+    supabaseAnonKey === "placeholder-anon-key"
+  ) {
+    return false;
+  }
+  return true;
 };

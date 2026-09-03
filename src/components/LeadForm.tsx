@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ClipboardCheck, Sparkles, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
-import { supabase, isSupabaseConfigured, type SignupRecord } from "@/lib/supabaseClient";
+import { supabase, isSupabaseConfigured, type DiagnosticSignupRecord } from "@/lib/supabaseClient";
 
 interface FormState {
   name: string;
@@ -88,46 +88,38 @@ export default function LeadForm() {
     setIsSubmitting(true);
     setSubmitError(null);
 
-    const insertPayload: SignupRecord = {
-      name: formData.name.trim(),
-      email: formData.email.trim(),
-      phone: formData.phone.trim() || undefined,
-      company: formData.company.trim() || undefined,
+    // Client Configuration Check
+    if (!isSupabaseConfigured()) {
+      const configErrorMessage = "Configuration Error: Database credentials missing";
+      console.error("Supabase Insert Error:", configErrorMessage);
+      setSubmitError(configErrorMessage);
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Key alignment matching database column names
+    const payload: DiagnosticSignupRecord = {
+      full_name: formData.name.trim(),
+      work_email: formData.email.trim(),
+      phone_number: formData.phone.trim() || undefined,
+      company_name: formData.company.trim() || undefined,
       company_size: formData.companySize || undefined,
-      bottleneck: formData.bottleneck || undefined,
+      primary_bottleneck: formData.bottleneck || undefined,
       message: formData.message.trim() || undefined,
     };
 
     try {
-      if (!isSupabaseConfigured()) {
-        // Fallback when .env.local hasn't been configured with live Supabase credentials yet
-        console.warn(
-          "[Supabase] Credentials (NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY) are not set in .env.local. Submission simulated with payload:",
-          insertPayload
-        );
-        await new Promise((resolve) => setTimeout(resolve, 600));
-        setIsSubmitted(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          companySize: "",
-          bottleneck: "",
-          message: "",
-        });
-        setErrors({});
+      const { data, error } = await supabase
+        .from("diagnostic_signups")
+        .insert([payload]);
+
+      if (error) {
+        console.error("Supabase Insert Error:", error);
+        setSubmitError(error.message || "An error occurred while inserting data.");
         return;
       }
 
-      const { error } = await supabase.from("signups").insert([insertPayload]);
-
-      if (error) {
-        throw new Error(error.message || "Failed to submit diagnostic request. Please try again.");
-      }
-
-      setIsSubmitted(true);
-      // Clean form reset after successful submission
+      // Successful insertion: clear form fields & transition to success screen
       setFormData({
         name: "",
         email: "",
@@ -138,14 +130,12 @@ export default function LeadForm() {
         message: "",
       });
       setErrors({});
+      setIsSubmitted(true);
     } catch (err: unknown) {
+      console.error("Supabase Insert Error:", err);
       let errorMessage = "An unexpected error occurred during submission.";
       if (err instanceof Error) {
-        if (err.message.includes("Failed to fetch")) {
-          errorMessage = "Could not connect to Supabase. Please verify your NEXT_PUBLIC_SUPABASE_URL in .env.local and network connection.";
-        } else {
-          errorMessage = err.message;
-        }
+        errorMessage = err.message;
       }
       setSubmitError(errorMessage);
     } finally {
