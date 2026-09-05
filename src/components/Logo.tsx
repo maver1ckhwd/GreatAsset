@@ -6,11 +6,11 @@ import React from "react";
 // System configuration (tailwind.config.js) dynamically parses this object to configure global CSS.
 export const BRAND_LOGO_COLORS = {
   primaryBrandBlue: {
-    light: "#4A90E2",
-    dark: "#5D9CEC"
+    light: "#5B9BD5",
+    dark: "#5B9BD5"
   },
   neutralCoreSlate: {
-    light: "#2D3238",
+    light: "#333333",
     dark: "#FFFFFF"
   },
   supportingMetallicGray: {

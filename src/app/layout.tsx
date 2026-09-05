@@ -17,6 +17,10 @@ const outfit = Outfit({
 export const metadata = {
   title: "GreatAsset | Talent Acquisition, Management & Development Partner",
   description: "Connecting enterprise companies with elite executive, scientific, and technical leaders. GreatAsset is the premier strategic Talent Acquisition, Management & Development Partner, offering full-lifecycle HR ecosystem services including performance management, structuring, and outsourcing support.",
+  icons: {
+    icon: "/great_asset_logo_transparent.png",
+    apple: "/great_asset_logo_transparent.png",
+  },
 };
 
 export default function RootLayout({

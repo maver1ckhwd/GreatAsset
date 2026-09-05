@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import OperationalLandscape from "@/components/OperationalLandscape";
@@ -40,7 +41,9 @@ export default function Home() {
       <footer id="resources" className="bg-background border-t border-border py-12 text-muted text-xs">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center">
-            <Logo />
+            <Link href="/" className="hover:opacity-90 transition-opacity">
+              <Logo />
+            </Link>
           </div>
           
           <div className="flex items-center gap-8">
