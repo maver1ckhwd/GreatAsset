@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "@/components/Header";
 import { BlogPost } from "@/utils/markdown";
 import { Calendar, Tag, ArrowLeft } from "lucide-react";
@@ -13,31 +11,11 @@ interface PostClientProps {
 }
 
 export default function PostClient({ post, htmlContent }: PostClientProps) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
-    setIsDarkMode(isDark);
-  }, []);
-
-  const toggleDarkMode = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
-    }
-  };
-
-
   return (
     <div className="min-h-screen font-sans antialiased bg-background text-foreground transition-colors duration-300 flex flex-col justify-between">
       <div>
         {/* Global Header */}
-        <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+        <Header />
 
         {/* Post Container */}
         <main className="max-w-4xl mx-auto px-6 py-12">
@@ -45,7 +23,7 @@ export default function PostClient({ post, htmlContent }: PostClientProps) {
           <div className="mb-8">
             <Link 
               href="/blog" 
-              className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-neutral-core dark:hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-neutral-core transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Insights
@@ -67,7 +45,7 @@ export default function PostClient({ post, htmlContent }: PostClientProps) {
                 </span>
               </div>
               
-              <h1 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-neutral-core dark:text-white leading-tight">
+              <h1 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-neutral-core leading-tight">
                 {post.title}
               </h1>
 
@@ -78,7 +56,7 @@ export default function PostClient({ post, htmlContent }: PostClientProps) {
 
             {/* Rendered HTML content */}
             <div 
-              className="prose prose-slate dark:prose-invert max-w-none pt-4 border-t border-border"
+              className="prose prose-slate max-w-none pt-4 border-t border-border"
               dangerouslySetInnerHTML={{ __html: htmlContent }}
             />
 

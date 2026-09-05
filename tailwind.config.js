@@ -72,14 +72,6 @@ function syncGlobalsCss(colors) {
     updateVariable(":root", "--foreground", colors.neutralCoreSlate.light);
     updateVariable(":root", "--supporting-subtle", colors.supportingMetallicGray.light);
     updateVariable(":root", "--border", colors.supportingMetallicGray.light);
-    
-    // Update .dark block variables
-    updateVariable("\\.dark", "--primary", colors.primaryBrandBlue.dark);
-    updateVariable("\\.dark", "--accent", colors.primaryBrandBlue.dark);
-    updateVariable("\\.dark", "--neutral-core", colors.neutralCoreSlate.dark);
-    updateVariable("\\.dark", "--foreground", colors.neutralCoreSlate.dark);
-    updateVariable("\\.dark", "--supporting-subtle", colors.supportingMetallicGray.dark);
-    updateVariable("\\.dark", "--border", colors.supportingMetallicGray.dark);
 
     if (changed) {
       fs.writeFileSync(cssPath, content, "utf8");
@@ -94,12 +86,13 @@ syncGlobalsCss(brandColors);
 
 function copyAndCleanLogos() {
   try {
-    const artifactDir = "C:/Users/sansk/.gemini/antigravity-ide/brain/769f1836-cb13-4e13-b5e4-e144a6a6b6e6";
+    const artifactDir = "C:/Users/sansk/.gemini/antigravity-ide/brain/5cfd865e-a6d9-427b-b74a-0216319cda30";
     const logoMap = [
       ["media__1785591124292.png", "captain_sales.png"],
       ["media__1785591177956.png", "healic.png"],
       ["media__1785591234084.png", "designwell_pdc.png"],
       ["media__1785591262622.png", "casa_derma.png"],
+      ["media__1788611421894.jpg", "great_asset_logo.jpg"]
     ];
 
     logoMap.forEach(([srcFile, destFile]) => {
@@ -111,31 +104,25 @@ function copyAndCleanLogos() {
       }
     });
 
-    // Clean up any black border outlines on remaining logo files using sharp if available
+    // Trim white border padding on great_asset_logo for maximum crispness
     try {
       const sharp = require("sharp");
-      const extraLogos = ["badili.png", "kp_architects.png", "centricity.png", "india_print_n_serve.png"];
-      extraLogos.forEach(async (fileName) => {
-        const filePath = path.resolve(__dirname, "./public", fileName);
-        if (fs.existsSync(filePath)) {
-          const buffer = fs.readFileSync(filePath);
-          const meta = await sharp(buffer).metadata();
-          if (meta.width && meta.height) {
-            // Extract inner box to strip 3px border outline
-            const trimmed = await sharp(buffer)
-              .extract({
-                left: Math.min(4, Math.floor(meta.width * 0.03)),
-                top: Math.min(4, Math.floor(meta.height * 0.03)),
-                width: meta.width - Math.min(8, Math.floor(meta.width * 0.06)),
-                height: meta.height - Math.min(8, Math.floor(meta.height * 0.06))
-              })
-              .toBuffer();
-            fs.writeFileSync(filePath, trimmed);
-          }
-        }
-      });
+      const mainLogoPath = path.resolve(__dirname, "./public/great_asset_logo.jpg");
+      if (fs.existsSync(mainLogoPath)) {
+        const buffer = fs.readFileSync(mainLogoPath);
+        sharp(buffer)
+          .trim()
+          .toBuffer()
+          .then((trimmed) => {
+            fs.writeFileSync(path.resolve(__dirname, "./public/great_asset_logo.png"), trimmed);
+            console.log("[Sharp] Successfully trimmed great_asset_logo.png");
+          })
+          .catch((err) => {
+            console.log("[Sharp Trim Error]", err);
+          });
+      }
     } catch (sharpErr) {
-      console.log("[Sharp] Sharp not active or error:", sharpErr);
+      console.log("[Sharp] Sharp not active:", sharpErr);
     }
   } catch (err) {
     console.error("[Logo Sync Error]", err);

@@ -90,7 +90,7 @@ export default function OperationalLandscape() {
           <span className="text-xs text-primary tracking-widest font-bold uppercase px-3.5 py-1.5 rounded-full bg-primary/10 inline-block">
             NATIONWIDE OPERATIONAL LANDSCAPE
           </span>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-neutral-core dark:text-white tracking-tight leading-tight">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-neutral-core tracking-tight leading-tight">
             Solving Enterprise Operations Across PAN India
           </h2>
           <p className="text-muted text-sm sm:text-base leading-relaxed">
@@ -120,7 +120,7 @@ export default function OperationalLandscape() {
 
                   {/* Title & Description */}
                   <div className="space-y-3">
-                    <h3 className="font-display font-bold text-xl text-neutral-core dark:text-white group-hover:text-primary transition-colors leading-snug">
+                    <h3 className="font-display font-bold text-xl text-neutral-core group-hover:text-primary transition-colors leading-snug">
                       {item.title}
                     </h3>
                     <p className="text-muted text-xs sm:text-sm leading-relaxed">

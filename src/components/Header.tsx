@@ -1,16 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Logo from "@/components/Logo";
 import Link from "next/link";
 
-interface HeaderProps {
-  isDarkMode: boolean;
-  toggleDarkMode: () => void;
-}
-
-export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleScrollToForm = (e: React.MouseEvent) => {
@@ -48,14 +43,6 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
 
         {/* Right Buttons / Bold Accent Coral CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <button 
-            onClick={toggleDarkMode}
-            className="p-2.5 rounded-xl border border-border hover:bg-muted-light transition-colors text-muted hover:text-foreground"
-            aria-label="Toggle Theme"
-          >
-            {isDarkMode ? <Sun className="w-4 h-4 text-amber-500" /> : <Moon className="w-4 h-4" />}
-          </button>
-          
           <a 
             href="#health-check-form" 
             onClick={handleScrollToForm}
@@ -68,12 +55,6 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
         {/* Mobile Toggle */}
         <div className="flex items-center gap-3 md:hidden">
           <button 
-            onClick={toggleDarkMode}
-            className="p-2 rounded-lg border border-border text-muted"
-          >
-            {isDarkMode ? <Sun className="w-4 h-4 text-amber-500" /> : <Moon className="w-4 h-4" />}
-          </button>
-          <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-lg border border-border text-foreground hover:bg-muted-light"
           >
@@ -85,7 +66,7 @@ export default function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div 
-          className="absolute top-full left-0 w-full z-50 bg-[#F8F9FA] dark:bg-background shadow-lg border-b border-border md:hidden p-6 flex flex-col gap-6 animate-fade-in [-webkit-overflow-scrolling:touch]"
+          className="absolute top-full left-0 w-full z-50 bg-[#F8F9FA] shadow-lg border-b border-border md:hidden p-6 flex flex-col gap-6 animate-fade-in [-webkit-overflow-scrolling:touch]"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           <a 

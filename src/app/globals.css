@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root {
   --background: #f8f9fa; /* Clean Alabaster */
   --foreground: #1a2b49; /* Deep Slate Blue */
@@ -26,32 +24,6 @@
   
   --neutral-core: #1a2b49;
   --supporting-subtle: #94a3b8;
-}
-
-.dark {
-  --background: #0e1829; /* Dark Slate Blue */
-  --foreground: #ffffff;
-  
-  --primary: #5d9cec;
-  --primary-foreground: #ffffff;
-  
-  --secondary: #1a2b49;
-  --secondary-foreground: #f8f9fa;
-  
-  --accent: #5d9cec;
-  --accent-foreground: #ffffff;
-  
-  --supporting: #5d9cec;
-  --supporting-foreground: #ffffff;
-  
-  --muted: #94a3b8;
-  --muted-light: #1e293b;
-  
-  --card: #131e32;
-  --border: #cbd5e1;
-  
-  --neutral-core: #ffffff;
-  --supporting-subtle: #cbd5e1;
 }
 
 @theme inline {
@@ -92,11 +64,6 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(26, 43, 73, 0.08);
-}
-
-.dark .glassmorphism {
-  background: rgba(14, 24, 41, 0.7);
-  border: 1px solid rgba(248, 249, 250, 0.05);
 }
 
 .glow-btn {

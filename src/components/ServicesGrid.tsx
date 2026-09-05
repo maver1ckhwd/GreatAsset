@@ -39,7 +39,7 @@ export default function ServicesGrid() {
         
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <span className="text-xs text-primary tracking-widest font-bold uppercase">SERVICE SPECTRUM</span>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-neutral-core dark:text-white tracking-tight">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-neutral-core tracking-tight">
             Scalable People Operations Infrastructure
           </h2>
           <p className="text-muted text-sm sm:text-base">
@@ -68,7 +68,7 @@ export default function ServicesGrid() {
                     <IconComponent className="w-6 h-6" />
                   </div>
                   
-                  <h3 className="font-display font-bold text-xl mb-3 text-neutral-core dark:text-white group-hover:text-primary transition-colors">
+                  <h3 className="font-display font-bold text-xl mb-3 text-neutral-core group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
                   
@@ -90,7 +90,7 @@ export default function ServicesGrid() {
                   
                   <a
                     href="#health-check-form"
-                    className="text-xs font-bold text-primary hover:text-neutral-core dark:hover:text-white flex items-center gap-1.5 transition-colors mt-2"
+                    className="text-xs font-bold text-primary hover:text-neutral-core flex items-center gap-1.5 transition-colors mt-2"
                   >
                     Select Capability <ArrowRight className="w-3.5 h-3.5" />
                   </a>

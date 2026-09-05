@@ -92,7 +92,7 @@ export default function ExecutionFramework() {
             <Zap className="w-3.5 h-3.5" />
             <span>SCOPE OF WORK & DELIVERABLES</span>
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-neutral-core dark:text-white tracking-tight leading-tight">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-neutral-core tracking-tight leading-tight">
             Service Capabilities & Execution Framework
           </h2>
           <p className="text-muted text-sm sm:text-base leading-relaxed">
@@ -121,7 +121,7 @@ export default function ExecutionFramework() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-display font-bold text-xl text-neutral-core dark:text-white group-hover:text-primary transition-colors mb-6 leading-snug">
+                  <h3 className="font-display font-bold text-xl text-neutral-core group-hover:text-primary transition-colors mb-6 leading-snug">
                     {item.title}
                   </h3>
 

@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "@/components/Header";
 import { BlogPost } from "@/utils/markdown";
 import { Calendar, Tag, ArrowRight } from "lucide-react";
@@ -12,38 +10,18 @@ interface BlogClientProps {
 }
 
 export default function BlogClient({ posts }: BlogClientProps) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Sync with document element dark mode state on mount
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
-    setIsDarkMode(isDark);
-  }, []);
-
-  const toggleDarkMode = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
-    }
-  };
-
   return (
     <div className="min-h-screen font-sans antialiased bg-background text-foreground transition-colors duration-300 flex flex-col justify-between">
       <div>
         {/* Global Header */}
-        <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+        <Header />
 
         {/* Blog Banner */}
         <section className="relative overflow-hidden py-12 md:py-16 bg-radial-gradient">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(74,144,226,0.05),transparent_50%)] dark:bg-[radial-gradient(ellipse_at_top_right,rgba(93,156,236,0.07),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(74,144,226,0.05),transparent_50%)]" />
           <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-4">
             <span className="text-xs text-primary tracking-widest font-bold uppercase">RESOURCES & INSIGHTS</span>
-            <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-neutral-core dark:text-white tracking-tight">
+            <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-neutral-core tracking-tight">
               The GreatAsset Intelligence Blog
             </h1>
             <p className="text-muted text-sm sm:text-base max-w-xl mx-auto">
@@ -79,7 +57,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                     </div>
 
                     {/* Title */}
-                    <h2 className="font-display font-bold text-xl text-neutral-core dark:text-white group-hover:text-primary transition-colors leading-tight">
+                    <h2 className="font-display font-bold text-xl text-neutral-core group-hover:text-primary transition-colors leading-tight">
                       <Link href={`/blog/${post.slug}`}>
                         {post.title}
                       </Link>
@@ -94,7 +72,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   <div className="pt-6 border-t border-border mt-6">
                     <Link 
                       href={`/blog/${post.slug}`}
-                      className="text-xs font-bold text-primary group-hover:text-neutral-core dark:group-hover:text-white flex items-center gap-1.5 transition-colors"
+                      className="text-xs font-bold text-primary group-hover:text-neutral-core flex items-center gap-1.5 transition-colors"
                     >
                       Read Full Article
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

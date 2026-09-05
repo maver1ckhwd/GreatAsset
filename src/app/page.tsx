@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import OperationalLandscape from "@/components/OperationalLandscape";
@@ -12,30 +10,10 @@ import LeadForm from "@/components/LeadForm";
 import Logo from "@/components/Logo";
 
 export default function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Dark mode synchronization
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
-    setIsDarkMode(isDark);
-  }, []);
-
-  const toggleDarkMode = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
-    }
-  };
-
   return (
     <div className="min-h-screen font-sans antialiased bg-background text-foreground transition-colors duration-300">
       {/* Global Header */}
-      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <Header />
 
       {/* Hero Section */}
       <Hero />

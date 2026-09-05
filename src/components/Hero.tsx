@@ -14,7 +14,7 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32 bg-radial-gradient">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(74,144,226,0.06),transparent_50%)] dark:bg-[radial-gradient(ellipse_at_top_right,rgba(93,156,236,0.08),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(74,144,226,0.06),transparent_50%)]" />
       
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10 space-y-6">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wide">
@@ -22,7 +22,7 @@ export default function Hero() {
           <span>TALENT ACQUISITION, MANAGEMENT & DEVELOPMENT PARTNER</span>
         </div>
         
-        <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] text-neutral-core dark:text-white">
+        <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] text-neutral-core">
           Building Strategic <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70">
             Workforces from Scratch.

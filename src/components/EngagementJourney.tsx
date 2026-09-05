@@ -67,7 +67,7 @@ export default function EngagementJourney() {
           <span className="text-xs text-primary tracking-widest font-bold uppercase px-3.5 py-1.5 rounded-full bg-primary/10 inline-block">
             STRUCTURED ONBOARDING PATHWAY
           </span>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-neutral-core dark:text-white tracking-tight leading-tight">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-neutral-core tracking-tight leading-tight">
             Engagement Journey & Onboarding
           </h2>
           <p className="text-muted text-sm sm:text-base leading-relaxed">
@@ -105,7 +105,7 @@ export default function EngagementJourney() {
                     </span>
 
                     {/* Title */}
-                    <h3 className="font-display font-bold text-lg text-neutral-core dark:text-white group-hover:text-primary transition-colors leading-snug">
+                    <h3 className="font-display font-bold text-lg text-neutral-core group-hover:text-primary transition-colors leading-snug">
                       {step.title}
                     </h3>
 
@@ -129,7 +129,7 @@ export default function EngagementJourney() {
         {/* Call to Action Banner */}
         <div className="bg-muted-light/40 border border-border p-8 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center sm:text-left">
-            <h4 className="font-display font-bold text-lg text-neutral-core dark:text-white">
+            <h4 className="font-display font-bold text-lg text-neutral-core">
               Ready to begin Step 01?
             </h4>
             <p className="text-muted text-xs sm:text-sm">
