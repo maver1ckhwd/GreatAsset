@@ -14,32 +14,10 @@ export interface DiagnosticSignupRecord {
 
 export type SignupRecord = DiagnosticSignupRecord;
 
-/**
- * Retrieve environment variables supporting both Next.js (process.env.NEXT_PUBLIC_*)
- * and Vite (import.meta.env.VITE_*) frameworks.
- */
-function getEnvVariable(nextKey: string, viteKey: string): string {
-  if (typeof process !== "undefined" && process.env && process.env[nextKey]) {
-    return process.env[nextKey] as string;
-  }
+export const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+export const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
-  try {
-    // Vite support fallback
-    const metaEnv = (import.meta as unknown as { env?: Record<string, string> }).env;
-    if (metaEnv && metaEnv[viteKey]) {
-      return metaEnv[viteKey];
-    }
-  } catch {
-    // Ignore in environments where import.meta is unavailable
-  }
-
-  return "";
-}
-
-export const supabaseUrl = getEnvVariable("NEXT_PUBLIC_SUPABASE_URL", "VITE_SUPABASE_URL");
-export const supabaseAnonKey = getEnvVariable("NEXT_PUBLIC_SUPABASE_ANON_KEY", "VITE_SUPABASE_ANON_KEY");
-
-// Use a fallback URL structure to ensure createClient doesn't crash on initial build if env vars aren't provided yet.
+// Use fallback URL to ensure createClient doesn't crash during initial compilation if env vars are undefined
 const effectiveUrl =
   supabaseUrl && supabaseUrl.startsWith("http")
     ? supabaseUrl
@@ -50,16 +28,19 @@ const effectiveAnonKey = supabaseAnonKey || "placeholder-anon-key";
 export const supabase = createClient(effectiveUrl, effectiveAnonKey);
 
 export const isSupabaseConfigured = (): boolean => {
-  if (!supabaseUrl || !supabaseAnonKey) {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!url || !key) {
     return false;
   }
   if (
-    supabaseUrl.includes("your-actual-project") ||
-    supabaseUrl.includes("your-project-ref") ||
-    supabaseAnonKey.includes("your-actual-anon-key") ||
-    supabaseAnonKey.includes("your-supabase-anon-key") ||
-    supabaseUrl.includes("placeholder-project") ||
-    supabaseAnonKey === "placeholder-anon-key"
+    url.includes("your-actual-project") ||
+    url.includes("your-project-ref") ||
+    key.includes("your-actual-anon-key") ||
+    key.includes("your-supabase-anon-key") ||
+    url.includes("placeholder-project") ||
+    key === "placeholder-anon-key"
   ) {
     return false;
   }
