@@ -21,7 +21,7 @@ export default function Header() {
     <header className="relative sticky top-0 z-50 w-full glassmorphism border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Left-aligned branding logo */}
-        <Link href="/" className="hover:opacity-90 transition-opacity">
+        <Link href="/" className="hover:opacity-90 transition-opacity flex items-center shrink-0">
           <Logo />
         </Link>
 

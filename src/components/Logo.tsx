@@ -37,7 +37,7 @@ export default function Logo({ className = "", iconOnly = false }: LogoProps) {
           }
         }}
         alt="GREAT ASSET"
-        className="h-10 sm:h-12 md:h-14 w-auto object-contain shrink-0"
+        className="h-6 sm:h-7 md:h-8 w-auto object-contain shrink-0"
       />
     </div>
   );
